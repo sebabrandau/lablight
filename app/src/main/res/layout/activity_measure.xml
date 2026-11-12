@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Paso 3: Medición en curso (prototipo Figma, pantalla 4) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/topbar"
+        layout="@layout/view_topbar" />
+
+    <include
+        android:id="@+id/stepper"
+        layout="@layout/view_stepper" />
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/txtSimBadge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_ok"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/sim_badge"
+                android:textColor="@color/model"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <!-- Luz de fondo -->
+            <com.google.android.material.card.MaterialCardView style="@style/LabCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView style="@style/LabSectionTitle" android:text="@string/bg_title" />
+
+                    <TextView style="@style/LabBody" android:text="@string/bg_body" android:textSize="13sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnBackground"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/btn_background"
+                        android:textColor="@color/ink" />
+
+                    <TextView
+                        android:id="@+id/txtBackground"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/ink"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Distancia actual -->
+            <com.google.android.material.card.MaterialCardView style="@style/LabCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/distance_label"
+                            android:textColor="@color/ink_soft"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_circle"
+                            android:contentDescription="@null"
+                            android:padding="7dp"
+                            android:src="@drawable/ic_ruler"
+                            app:tint="@color/ink" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMinus"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="64dp"
+                            android:layout_height="56dp"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:minWidth="0dp"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="−5"
+                            android:textColor="@color/ink" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/inputDistanceLayout"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_weight="1"
+                            app:hintEnabled="false"
+                            app:suffixText="@string/unit_cm">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/inputDistance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:imeOptions="actionDone"
+                                android:inputType="numberDecimal"
+                                android:maxLines="1"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPlus"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="64dp"
+                            android:layout_height="56dp"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:minWidth="0dp"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="+5"
+                            android:textColor="@color/ink" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Indicador circular de lux -->
+            <FrameLayout
+                android:layout_width="210dp"
+                android:layout_height="210dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="6dp">
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/gauge"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:max="100"
+                    app:indicatorColor="@color/sun"
+                    app:indicatorSize="200dp"
+                    app:trackColor="@color/line"
+                    app:trackCornerRadius="8dp"
+                    app:trackThickness="14dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtLux"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="—"
+                        android:textColor="@color/ink"
+                        android:textSize="44sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_lux"
+                        android:textColor="@color/ink_soft"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/intensity_label"
+                android:textColor="@color/ink"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Consejo / aviso dinámico -->
+            <LinearLayout
+                android:id="@+id/boxTip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_tip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_bulb"
+                    app:tint="@color/sun_dark" />
+
+                <TextView
+                    android:id="@+id/txtTip"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/tip_default"
+                    android:textColor="@color/ink"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                style="@style/LabPrimaryButton"
+                android:layout_marginTop="14dp"
+                android:text="@string/btn_save" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressSampling"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:max="100"
+                android:visibility="gone"
+                app:indicatorColor="@color/sun" />
+
+            <TextView
+                android:id="@+id/txtStatus"
+                style="@style/LabBody"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:visibility="gone" />
+
+            <!-- Lista de mediciones -->
+            <TextView
+                android:id="@+id/txtCount"
+                style="@style/LabSectionTitle"
+                android:layout_marginTop="16dp" />
+
+            <LinearLayout
+                android:id="@+id/containerMeasurements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/txtResultsHint"
+                style="@style/LabBody"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/results_hint"
+                android:textSize="13sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFinish"
+                style="@style/LabOutlineButton"
+                android:layout_marginTop="8dp"
+                android:text="@string/btn_finish" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

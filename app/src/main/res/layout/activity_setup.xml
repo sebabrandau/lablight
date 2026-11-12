@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Paso 1: Configuración (prototipo Figma, pantalla 3) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/topbar"
+        layout="@layout/view_topbar" />
+
+    <include
+        android:id="@+id/stepper"
+        layout="@layout/view_stepper" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView style="@style/LabTitle" android:text="@string/setup_title" />
+
+            <TextView
+                style="@style/LabBody"
+                android:layout_marginTop="4dp"
+                android:text="@string/setup_sub" />
+
+            <TextView style="@style/LabLabel" android:text="@string/label_name" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_name"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_name"
+                    android:inputType="textCapSentences"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView style="@style/LabLabel" android:text="@string/label_source" />
+
+            <Spinner
+                android:id="@+id/spinnerSource"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_row"
+                android:paddingHorizontal="8dp" />
+
+            <TextView style="@style/LabLabel" android:text="@string/label_unit" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_row"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:text="@string/unit_cm_long"
+                android:textColor="@color/ink"
+                android:textSize="15sp" />
+
+            <TextView style="@style/LabLabel" android:text="@string/label_mode" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnModeSensor"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:text="@string/mode_sensor"
+                    android:textColor="@color/ink" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnModeSim"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:text="@string/mode_sim"
+                    android:textColor="@color/ink" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <!-- Tarjeta del sensor real -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSensor"
+                style="@style/LabCard"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView style="@style/LabSectionTitle" android:text="@string/sensor_card_title" />
+
+                    <TextView
+                        android:id="@+id/txtSensorName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ink"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/txtSensorDetail"
+                        style="@style/LabBody"
+                        android:layout_marginTop="2dp" />
+
+                    <TextView
+                        android:id="@+id/txtLiveLux"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_tip"
+                        android:padding="10dp"
+                        android:text="@string/live_lux_waiting"
+                        android:textColor="@color/ink"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtLiveHint"
+                        style="@style/LabBody"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/live_lux_hint"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Tarjeta del modo simulación -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSim"
+                style="@style/LabCard"
+                android:layout_marginTop="12dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView style="@style/LabSectionTitle" android:text="@string/sim_card_title" />
+
+                    <TextView style="@style/LabBody" android:text="@string/sim_card_body" />
+
+                    <TextView
+                        android:id="@+id/txtSimPower"
+                        style="@style/LabLabel"
+                        android:text="@string/sim_power_label" />
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/sliderPower"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stepSize="500"
+                        android:value="5000"
+                        android:valueFrom="500"
+                        android:valueTo="20000"
+                        app:thumbColor="@color/sun_dark"
+                        app:trackColorActive="@color/sun"
+                        app:trackColorInactive="@color/line" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNext"
+        style="@style/LabPrimaryButton"
+        android:layout_margin="16dp"
+        android:text="@string/next" />
+</LinearLayout>

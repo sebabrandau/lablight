@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bragolito</string>
+
+    <!-- ⚠️ Cambiar por la URL real del repositorio del grupo en GitHub -->
+    <string name="repo_url">https://github.com/sebabrandau/lablight</string>
+
+    <!-- General -->
+    <string name="back">Atrás</string>
+    <string name="delete">Borrar</string>
+    <string name="next">Siguiente</string>
+    <string name="cancel">Cancelar</string>
+    <string name="ok">Entendido</string>
+    <string name="unit_lux">lux</string>
+    <string name="unit_cm">cm</string>
+
+    <!-- Barra inferior -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_history">Experimentos</string>
+    <string name="nav_learn">Aprender</string>
+    <string name="nav_about">Proyecto</string>
+
+    <!-- Bienvenida -->
+    <string name="welcome_subtitle">Análisis experimental de la intensidad de la luz en función de la distancia usando el sensor de luminosidad de tu celular.</string>
+    <string name="btn_start">Comenzar</string>
+    <string name="btn_instructions">Ver instrucciones</string>
+    <string name="welcome_footer">LabLight · Proyecto de Innovación Tecnológica · Universidad Mayor</string>
+
+    <!-- Inicio -->
+    <string name="home_question">¿Qué quieres hacer hoy?</string>
+    <string name="menu_new_title">Nuevo experimento</string>
+    <string name="menu_new_sub">Iniciar una nueva medición de intensidad luminosa.</string>
+    <string name="menu_history_title">Mis experimentos</string>
+    <string name="menu_history_sub">Ver y comparar tus experimentos guardados.</string>
+    <string name="menu_learn_title">Aprender</string>
+    <string name="menu_learn_sub">Conceptos clave sobre luz, sensores y experimentación.</string>
+    <string name="menu_about_title">Información del proyecto</string>
+    <string name="menu_about_sub">Objetivos, equipo e integrantes.</string>
+
+    <!-- Indicador de pasos -->
+    <string name="step_setup">Configuración</string>
+    <string name="step_prediction">Predicción</string>
+    <string name="step_measure">Medición</string>
+    <string name="step_results">Resultados</string>
+
+    <!-- Paso 1: Configuración -->
+    <string name="title_new_experiment">Nuevo experimento</string>
+    <string name="setup_title">1. Configuración</string>
+    <string name="setup_sub">Ingresa los datos de tu experimento.</string>
+    <string name="label_name">Nombre del experimento</string>
+    <string name="hint_name">Ej: Medición 1 – linterna</string>
+    <string name="label_source">Fuente de luz</string>
+    <string name="label_unit">Unidad de distancia</string>
+    <string name="unit_cm_long">Centímetros (cm)</string>
+    <string name="label_mode">Modo de medición</string>
+    <string name="mode_sensor">Sensor del celular</string>
+    <string name="mode_sim">Simulación</string>
+    <string name="sensor_card_title">Sensor de luz del teléfono</string>
+    <string name="sensor_detail_format">%1$s · rango máx. %2$.0f lux · resolución %3$.2f lux</string>
+    <string name="live_lux_format">Lectura en vivo: %.1f lux</string>
+    <string name="live_lux_waiting">Lectura en vivo: esperando al sensor…</string>
+    <string name="live_lux_hint">Tapa con el dedo la parte superior de la pantalla: donde la lectura baje casi a 0 está el sensor.</string>
+    <string name="no_sensor_title">Este teléfono no tiene sensor de luz</string>
+    <string name="no_sensor_detail">Puedes hacer la experiencia completa en modo simulación, o usar el celular de otro integrante para medir datos reales.</string>
+    <string name="sim_card_title">Modo simulación</string>
+    <string name="sim_card_body">La app genera datos con el modelo E = E₁₀·(10 cm / d)² más luz de fondo y un pequeño ruido, como un sensor real. Sirve para practicar o si no tienes sensor. Los resultados quedarán marcados como \"simulados\".</string>
+    <string name="sim_power_label">Intensidad de la fuente simulada (lux a 10 cm)</string>
+
+    <!-- Paso 2: Predicción -->
+    <string name="prediction_title">2. Predicción</string>
+    <string name="prediction_sub">Antes de medir, piensa qué crees que va a pasar. No hay respuestas malas: al final compararás tu predicción con tus datos.</string>
+    <string name="prediction_question">Si alejas la fuente de luz al DOBLE de distancia del sensor, la intensidad de la luz que llega al sensor…</string>
+    <string name="prediction_required">Elige una opción para continuar.</string>
+
+    <!-- Paso 3: Medición -->
+    <string name="title_measuring">Medición en curso</string>
+    <string name="sim_badge">Modo simulación · datos generados por el modelo</string>
+    <string name="bg_title">Antes de empezar: luz de fondo</string>
+    <string name="bg_body">Apaga la fuente (déjala en su lugar) y mide la luz que hay en la sala. Se restará de cada medición.</string>
+    <string name="btn_background">Medir luz de fondo</string>
+    <string name="btn_background_again">Volver a medir la luz de fondo</string>
+    <string name="background_none">Fondo: sin medir (se usará 0 lux)</string>
+    <string name="background_format">Fondo medido: %.1f lux ✓</string>
+    <string name="distance_label">Distancia actual (fuente → sensor)</string>
+    <string name="intensity_label">Intensidad luminosa (iluminancia)</string>
+    <string name="tip_default">Mantén el sensor (arriba de la pantalla, junto a la cámara frontal) apuntando directo a la fuente de luz.</string>
+    <string name="tip_saturated">⚠️ Sensor saturado: la luz supera lo que puede medir. Aleja la fuente o usa una luz más débil.</string>
+    <string name="tip_weak">⚠️ Llega muy poca luz. Apunta la fuente directo al sensor (arriba de la pantalla) y revisa que la funda no lo tape.</string>
+    <string name="btn_save">Guardar medición</string>
+    <string name="btn_finish">Finalizar experimento</string>
+    <string name="measuring_format">Midiendo… %d %%</string>
+    <string name="saved_count_format">Mediciones guardadas (%d)</string>
+    <string name="empty_measurements">Aún no hay mediciones. Guarda al menos 3 distancias distintas (por ejemplo 10, 15, 20, 25, 30, 40 y 50 cm).</string>
+    <string name="results_hint">Necesitas al menos 3 distancias distintas para ver resultados.</string>
+    <string name="error_distance">Ingresa una distancia mayor que 0</string>
+    <string name="sensor_not_ready">El sensor aún no entrega datos. Espera un segundo.</string>
+    <string name="measurement_cancelled">Medición cancelada</string>
+    <string name="measurement_saved_format">Guardado: %1$s cm → %2$s lux</string>
+    <string name="warn_saved_weak">La luz medida es muy débil: este punto puede no servir. Acerca o apunta mejor la fuente.</string>
+    <string name="warn_saved_saturated">El sensor estaba saturado: este punto no es válido. Bórralo y aleja la fuente.</string>
+
+    <!-- Paso 4: Resultados -->
+    <string name="results_title">Resultados</string>
+    <string name="tab_table">Tabla</string>
+    <string name="tab_chart">Gráfica</string>
+    <string name="chart_title">Intensidad luminosa vs. distancia</string>
+    <string name="axis_y_linear">E · intensidad luminosa [lux]</string>
+    <string name="axis_x_linear">d · distancia fuente–sensor [cm]</string>
+    <string name="axis_y_log">ln(E / 1 lux)</string>
+    <string name="axis_x_log">ln(d / 1 cm)</string>
+    <string name="axis_note_log">Si E = k/dⁿ, en esta escala los puntos forman una recta de pendiente −n.</string>
+    <string name="switch_log">Escala logarítmica (ln E vs. ln d)</string>
+    <string name="fit_title">Exponente medido</string>
+    <string name="prediction_result_title">Tu predicción</string>
+    <string name="repeat_title">Repetibilidad</string>
+    <string name="table_title">Tabla de datos</string>
+    <string name="btn_share">Compartir</string>
+    <string name="btn_store">Guardar</string>
+    <string name="saved_ok">Experimento guardado en \"Mis experimentos\"</string>
+    <string name="btn_measure_more">Agregar más mediciones</string>
+    <string name="btn_home">Volver al inicio</string>
+    <string name="fit_not_possible">Con estos datos no se puede ajustar el modelo. Necesitas al menos 2 distancias distintas con intensidad mayor que la luz de fondo (idealmente 5 o más).</string>
+    <string name="legend_measured">Medido</string>
+    <string name="legend_fit">Ajuste E = k/dⁿ</string>
+    <string name="legend_ideal">Ideal E = k/d²</string>
+
+    <!-- Mis experimentos -->
+    <string name="title_history">Mis experimentos</string>
+    <string name="history_empty">Todavía no tienes experimentos guardados. Cada experimento se guarda automáticamente mientras mides.</string>
+    <string name="history_hint">Toca un experimento para ver sus resultados. Mantén presionado para borrarlo.</string>
+    <string name="delete_confirm_title">¿Borrar experimento?</string>
+    <string name="delete_confirm_body">Se borrará \"%s\" y todas sus mediciones. Esta acción no se puede deshacer.</string>
+
+    <!-- Aprender -->
+    <string name="title_learn">Aprender</string>
+    <string name="tab_concepts">Conceptos</string>
+    <string name="tab_how">Cómo funciona</string>
+
+    <!-- Información del proyecto -->
+    <string name="title_about">Información del proyecto</string>
+</resources>

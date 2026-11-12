@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Indicador de pasos 1 a 4 del experimento (prototipo Figma, pantalla "Nuevo experimento") -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="18dp">
+
+        <TextView android:id="@+id/step1" style="@style/LabStepCircle" android:text="1" />
+        <View android:id="@+id/line1" style="@style/LabStepLine" />
+        <TextView android:id="@+id/step2" style="@style/LabStepCircle" android:text="2" />
+        <View android:id="@+id/line2" style="@style/LabStepLine" />
+        <TextView android:id="@+id/step3" style="@style/LabStepCircle" android:text="3" />
+        <View android:id="@+id/line3" style="@style/LabStepLine" />
+        <TextView android:id="@+id/step4" style="@style/LabStepCircle" android:text="4" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
+        <TextView android:id="@+id/label1" style="@style/LabStepLabel" android:text="@string/step_setup" />
+        <TextView android:id="@+id/label2" style="@style/LabStepLabel" android:text="@string/step_prediction" />
+        <TextView android:id="@+id/label3" style="@style/LabStepLabel" android:text="@string/step_measure" />
+        <TextView android:id="@+id/label4" style="@style/LabStepLabel" android:text="@string/step_results" />
+    </LinearLayout>
+</LinearLayout>

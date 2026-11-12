@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- El sensor de luz se usa para medir, pero no bloquea la instalación:
+         si el teléfono no lo tiene, la app ofrece el modo simulación. -->
+    <uses-feature
+        android:name="android.hardware.sensor.light"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LabLight">
+
+        <!-- Pantalla de bienvenida (punto de entrada) -->
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Secciones principales (barra inferior) -->
+        <activity android:name=".HomeActivity" android:screenOrientation="portrait" />
+        <activity android:name=".HistoryActivity" android:screenOrientation="portrait" />
+        <activity android:name=".LearnActivity" android:screenOrientation="portrait" />
+        <activity android:name=".AboutActivity" android:screenOrientation="portrait" />
+
+        <!-- Flujo del experimento: pasos 1 a 4 -->
+        <activity android:name=".SetupActivity" android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".PredictionActivity" android:screenOrientation="portrait" />
+        <activity android:name=".MeasureActivity" android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ResultsActivity" android:screenOrientation="portrait" />
+    </application>
+</manifest>

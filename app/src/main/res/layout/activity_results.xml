@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Paso 4: Resultados (prototipo Figma, pantalla 5) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/topbar"
+        layout="@layout/view_topbar" />
+
+    <include
+        android:id="@+id/stepper"
+        layout="@layout/view_stepper" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Encabezado del experimento -->
+            <com.google.android.material.card.MaterialCardView style="@style/LabCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:id="@+id/txtExpName"
+                        style="@style/LabSectionTitle" />
+
+                    <TextView
+                        android:id="@+id/txtExpInfo"
+                        style="@style/LabBody"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Exponente medido -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/LabCard"
+                app:cardBackgroundColor="@color/sun_soft"
+                app:strokeColor="@color/sun">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView style="@style/LabSectionTitle" android:text="@string/fit_title" />
+
+                    <TextView
+                        android:id="@+id/txtExponent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ink"
+                        android:textSize="38sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtFitDetail"
+                        style="@style/LabBody"
+                        android:textColor="@color/ink" />
+
+                    <TextView
+                        android:id="@+id/txtVerdict"
+                        style="@style/LabBody"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/ink"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Tabla / Gráfica -->
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:checkedButton="@+id/btnTabChart"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTabTable"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="@string/tab_table"
+                    android:textColor="@color/ink" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTabChart"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="@string/tab_chart"
+                    android:textColor="@color/ink" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <!-- Gráfica -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardChart"
+                style="@style/LabCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        style="@style/LabSectionTitle"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/chart_title" />
+
+                    <TextView
+                        android:id="@+id/txtAxisY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/axis_y_linear"
+                        android:textColor="@color/ink"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <com.github.mikephil.charting.charts.CombinedChart
+                        android:id="@+id/chart"
+                        android:layout_width="match_parent"
+                        android:layout_height="280dp" />
+
+                    <TextView
+                        android:id="@+id/txtAxisX"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/axis_x_linear"
+                        android:textColor="@color/ink"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtAxisNote"
+                        style="@style/LabBody"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="@string/axis_note_log"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchLog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/switch_log" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Tabla -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTable"
+                style="@style/LabCard"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView style="@style/LabSectionTitle" android:text="@string/table_title" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TableLayout
+                            android:id="@+id/tableData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Predicción vs. resultado -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPrediction"
+                style="@style/LabCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView style="@style/LabSectionTitle" android:text="@string/prediction_result_title" />
+
+                    <TextView
+                        android:id="@+id/txtPrediction"
+                        style="@style/LabBody"
+                        android:textColor="@color/ink" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Repetibilidad -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardRepeat"
+                style="@style/LabCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView style="@style/LabSectionTitle" android:text="@string/repeat_title" />
+
+                    <TextView
+                        android:id="@+id/txtRepeat"
+                        style="@style/LabBody"
+                        android:textColor="@color/ink" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShare"
+                    style="@style/LabOutlineButton"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_share"
+                    app:icon="@drawable/ic_share"
+                    app:iconTint="@color/ink" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnStore"
+                    style="@style/LabOutlineButton"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_store"
+                    app:icon="@drawable/ic_save"
+                    app:iconTint="@color/ink" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMeasureMore"
+                style="@style/LabPrimaryButton"
+                android:layout_marginTop="10dp"
+                android:text="@string/btn_measure_more" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnHome"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/btn_home"
+                android:textColor="@color/ink" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

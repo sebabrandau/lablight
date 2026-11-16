@@ -57,6 +57,7 @@
     <string name="mode_sim">Simulación</string>
     <string name="sensor_card_title">Sensor de luz del teléfono</string>
     <string name="sensor_detail_format">%1$s · rango máx. %2$.0f lux · resolución %3$.2f lux</string>
+    <string name="sensor_detail_no_range_format">%1$s · rango máx. no informado correctamente por el teléfono (dice %2$.0f lux) · resolución %3$.2f lux</string>
     <string name="live_lux_format">Lectura en vivo: %.1f lux</string>
     <string name="live_lux_waiting">Lectura en vivo: esperando al sensor…</string>
     <string name="live_lux_hint">Tapa con el dedo la parte superior de la pantalla: donde la lectura baje casi a 0 está el sensor.</string>

@@ -32,6 +32,10 @@ class MeasureActivity : AppCompatActivity() {
         const val STEP_CM = 5.0                // lo que suman/restan los botones ±5
         const val MIN_DISTANCES = 3            // mínimo de distancias distintas para ver resultados
         const val WEAK_LUX = 5.0               // bajo esto, la señal es demasiado débil
+        // Algunos teléfonos informan un rango máximo falso (ej. "1 lux").
+        // Bajo este valor el rango informado se ignora para detectar saturación.
+        const val MIN_RELIABLE_RANGE = 1000f
+        const val DEFAULT_GAUGE_MAX = 40000f
     }
 
     private lateinit var b: ActivityMeasureBinding
@@ -111,6 +115,9 @@ class MeasureActivity : AppCompatActivity() {
         }
     }
 
+    /** Rango máximo del sensor, o null si el teléfono informa un valor que no es creíble. */
+    private fun reliableMax(): Float? = source.maxRange.takeIf { it >= MIN_RELIABLE_RANGE }
+
     private fun persist() {
         repo.save(exp)
     }
@@ -121,14 +128,14 @@ class MeasureActivity : AppCompatActivity() {
         b.txtLux.text = if (lux >= 100f) String.format(Locale.US, "%.0f", lux)
                         else String.format(Locale.US, "%.1f", lux)
         // Indicador en escala logarítmica: así se ve el cambio tanto con 5 como con 5000 lux
-        val maxR = max(source.maxRange, 10f)
+        val maxR = reliableMax() ?: DEFAULT_GAUGE_MAX
         val pct = (log10(lux + 1.0) / log10(maxR + 1.0) * 100).toInt().coerceIn(0, 100)
         b.gauge.setProgressCompat(pct, false)
         renderTip(lux)
     }
 
     private fun renderTip(lux: Float) {
-        val saturated = source.maxRange > 0 && lux >= source.maxRange * 0.98f
+        val saturated = reliableMax()?.let { lux >= it * 0.98f } ?: false
         val weak = !samplingBackground && lux < WEAK_LUX
         when {
             saturated -> {
@@ -211,7 +218,7 @@ class MeasureActivity : AppCompatActivity() {
 
     /** Avisa si el punto recién guardado probablemente no sirve. */
     private fun warnIfBadPoint(d: Double, meanLux: Double) {
-        val saturated = source.maxRange > 0 && meanLux >= source.maxRange * 0.98
+        val saturated = reliableMax()?.let { meanLux >= it * 0.98 } ?: false
         val corrected = Analysis.corrected(meanLux, exp.backgroundLux)
         val msg = when {
             saturated -> getString(R.string.warn_saved_saturated)

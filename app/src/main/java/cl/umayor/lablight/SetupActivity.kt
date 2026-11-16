@@ -39,9 +39,12 @@ class SetupActivity : AppCompatActivity() {
         // Estado del sensor
         if (sensor.available) {
             b.txtSensorName.text = sensor.name
-            b.txtSensorDetail.text = getString(
-                R.string.sensor_detail_format, sensor.vendor, sensor.maxRange, sensor.resolution
-            )
+            b.txtSensorDetail.text = if (sensor.maxRange >= MeasureActivity.MIN_RELIABLE_RANGE) {
+                getString(R.string.sensor_detail_format, sensor.vendor, sensor.maxRange, sensor.resolution)
+            } else {
+                // Algunos fabricantes informan un rango falso (ej. 1 lux): se avisa en vez de mostrarlo como real
+                getString(R.string.sensor_detail_no_range_format, sensor.vendor, sensor.maxRange, sensor.resolution)
+            }
             b.toggleMode.check(R.id.btnModeSensor)
         } else {
             // Sin sensor: se ofrece la simulación para que la experiencia igual se pueda completar

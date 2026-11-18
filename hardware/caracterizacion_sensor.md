@@ -23,7 +23,7 @@ Teléfono: motorola moto G34 5G, Fuente: linterna de otro celular,   Luz de fond
 | 5 | 132.3 |
 | **Media** | 136.66 |
 | **Desviación estándar s** | 3.63 |
-| **s / media (%)** | 2.65 |
+| **s / media (%)** | 2.65 |%
 
 La app calcula estos valores en **Resultados → tarjeta "Repetibilidad"**.
 

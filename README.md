@@ -118,3 +118,4 @@ LabLight/
 - Solo Android; el rango y la resolución del sensor dependen del modelo de teléfono.
 - A menos de ~8 cm la fuente no se comporta como puntual y el modelo 1/d² pierde validez.
 - Los datos del modo simulación son generados por el modelo y se marcan como tales.
+- Algunos teléfonos (Moto G34, Samsung A14) informan un rango máximo falso de 1 lux; la app lo detecta y en ese caso no lo usa para avisar saturación.

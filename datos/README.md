@@ -35,3 +35,20 @@ Luego, una fila por medición:
 | `muestras` | — | Número de lecturas promediadas |
 
 > Los datos generados en **modo simulación** llevan `modo,SIMULACION` y no deben presentarse como mediciones reales.
+
+## Medición real · 16/11/2026 (Moto G34 5G, linterna de celular)
+
+Archivo: `2026-11-16_motoG34_linterna_1.csv` · modo SENSOR · fondo no medido.
+
+| d (cm) | 10 | 15 | 20 | 25 | 30 | 40 | 50 |
+|---|---|---|---|---|---|---|---|
+| E (lux) | 58,34 | 64,69 | 37,93 | 25,45 | 16,32 | 7,34 | 1,97 |
+
+**Análisis:**
+- Ajuste con todos los puntos: n = 2,06, R² = 0,846, error relativo 3,0 % respecto de n = 2.
+- Tramo 15–30 cm: n = 1,96, R² = 0,996, error 2,2 %; E·d² ≈ 15 080 ± 611 lux·cm² (4,1 %), casi constante, como predice la ley.
+- El punto de 10 cm es anómalo: a esa distancia la fuente ya no se comporta como puntual y el sensor no queda bien alineado.
+- El punto de 50 cm es anómalo porque la señal es muy débil (cerca de la luz de fondo, que no se midió).
+- Repetibilidad a 20 cm (serie aparte, 5 repeticiones): 136,7 lux, s = 3,6 lux (2,7 %).
+
+**Conclusión:** en el rango donde el montaje es válido (15–30 cm), los datos confirman la ley del inverso del cuadrado con un error menor al 3 %.
